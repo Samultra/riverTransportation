@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link href="/styles.css"> </Link>
+    <title>Речной Транспорт</title>
+    <style>
+     
+
+/* Стили для шапки */
+/* Стили для шапки */
+header {
+  background: rgba(192, 192, 192, 0.3); /* Прозрачное серое */
+  color: #000; /* Черный цвет текста */
+  font-family: 'Times New Roman', Times, serif; /* Шрифт "Times New Roman" */
+  padding: 10px;
+  text-align: center;
+
+}
+
+/* Стили для навигации */
+nav {
+  display: flex;
+  justify-content: center;
+  background: rgba(192, 192, 192, 0.3); /* Прозрачное серое стекло */
+  padding: 10px;
+  backdrop-filter: blur(10px); /* Задний фильтр размытия */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.3); /* Усиленная тень сверху и снизу */
+}
+
+nav a {
+  color: #ffffff; /* Черный цвет текста */
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-shadow: 1px 1px 1px #000;
+}
+
+nav a:hover {
+  background: rgba(169, 169, 169, 0.3); /* Прозрачное серое при наведении */
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #121212;
+    background: linear-gradient(
+        135deg,
+        #121212 25%,
+        #1a1a1a 25%,
+        #1a1a1a 50%,
+        #121212 50%,
+        #121212 75%,
+        #1a1a1a 75%,
+        #1a1a1a
+    );
+    background-size: 40px 40px;
+    animation: move 4s linear infinite;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 40px 40px;
+            }
+        }
+
+        .content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .header {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+}
+
+.card::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  border-radius: 1.2em;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  filter: blur(30px);
+}
+
+.card span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  border-radius: 1em;
+}
+
+.card span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card .content {
+  position: relative;
+  padding: 10px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.container {
+    position: relative;
+    margin-top: 100px;
+}
+
+.content {
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 90px; /* Добавляем отступ снизу */
+}
+
+.transport-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.ship-image {
+    width: calc(33.33% - 10px);
+    height: auto;
+    min-height: 100px; /* Например, установим минимальную высоту в 100px */
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease; /* Добавим transition для плавного эффекта */
+}
+
+.ship-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Используем transform: scale при наведении для увеличения */
+.ship-image:hover {
+    transform: scale(1.1);
+}
+
+/* Добавим стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Стили для изображений */
+.ship-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* Соотношение сторон для создания прямоугольной формы */
+    overflow: hidden;
+    position: relative;
+}
+
+.ship-image img {
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполнение изображения внутри контейнера без искажений */
+}
+
+/* Опциональный стиль для карточки, чтобы добавить тень и отступ */
+.ship-card {
+            width: 300px;
+            height: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background: linear-gradient(to right, transparent, #c0c0c0, transparent); /* Градиентный фон */
+        }
+
+        /* Стиль для верхних и нижних карточек */
+        .top-cards, .bottom-cards {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* Общий стиль для изображения корабля */
+        .ship-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+
+
+.ship-image:hover {
+    transform: scale(1.1);
+}
+
+.modal-content {
+    max-width: 400px; /* Установим максимальную ширину модального окна */
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный фон модального окна */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-body {
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-image {
+    max-width: 100%; /* Установим максимальную ширину изображения в модальном окне */
+    height: auto;
+    
+}
+
+/* Затемнение фона при открытом модальном окне */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Прозрачное затемнение */
+    z-index: 1;
+}
+
+/* Кнопка закрытия модального окна */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.service-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Стилизуем каждую услугу */
+.service {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилизуем изображения в услугах */
+.service-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Стилизуем детали услуги */
+.service-details {
+    margin-top: 15px;
+}
+
+/* Стилизуем заголовок и описание услуги */
+.service-details h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-details p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+.header {
+        text-shadow: 1px 1px 1px #000;
+    }
+.description {
+        text-shadow: 1px 1px 1px #000;
+    }
+    .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.contact-table, .contact-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 20px auto; /* Центрирование формы */
+}
+
+.contact-form label,
+.contact-form textarea,
+.contact-form input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%; /* Занимать 100% ширины родительского элемента */
+    box-sizing: border-box; /* Учитываем padding и border внутри элемента */
+}
+
+.contact-form textarea {
+    height: 150px; /* Увеличьте высоту textarea по вашему усмотрению */
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px; /* Увеличьте высоту кнопки по вашему усмотрению */
+    border: none;
+    cursor: pointer;
+    width: 100%; /* Занимать 100% ширины родительского элемента */
+    box-sizing: border-box; /* Учитываем padding и border внутри элемента */
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+
+#scheduleTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#scheduleTable th, #scheduleTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#scheduleTable th {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+#scheduleTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+#scheduleTable tbody tr:hover {
+    background-color: #e6f7ff;
+    color: #000;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>R i v e r T r a n s p o r t a t i o n</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#services">Услуги</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#schedule">Расписание</a>
+    </nav>
+
+    <div class="container">
+        <div class="content" id="home">
+            <div class="header">Главная</div>
+            <div class="description">
+                Добро пожаловать! Мы предоставляем надежные и эффективные услуги транспортировки по рекам.
+            </div>
+            <div class="transport-images">
+                <div class="top-cards">
+                    <div class="ship-card" data-title="Корабль 1" data-index="0">
+                        <div class="ship-image">
+                            <img src="/img/transport1.png" alt="Корабль 1">
+                        </div>
+                    </div>
+                    <div class="ship-card" data-title="Корабль 2" data-index="1">
+                        <div class="ship-image">
+                            <img src="/img/transport2.png" alt="Корабль 2">
+                        </div>
+                    </div>
+                    <div class="ship-card" data-title="Корабль 3" data-index="2">
+                        <div class="ship-image">
+                            <img src="/img/transport3.png" alt="Корабль 3">
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-cards">
+                    <div class="ship-card" data-title="Корабль 4" data-index="3">
+                        <div class="ship-image">
+                            <img src="/img/transport4.png" alt="Корабль 4">
+                        </div>
+                    </div>
+                    <div class="ship-card" data-title="Корабль 5" data-index="4">
+                        <div class="ship-image">
+                            <img src="/img/transport5.png" alt="Корабль 5">
+                        </div>
+                    </div>
+                    <div class="ship-card" data-title="Корабль 6" data-index="5">
+                        <div class="ship-image">
+                            <img src="/img/transport6.png" alt="Корабль 6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <img src="" alt="Корабль" id="modalImage" class="modal-image">
+                <p id="modalText"></p>
+            </div>
+        </div>
+    </div>
+        
+    <div id="overlay" class="overlay"></div>
+
+
+    <div class="content" id="services">
+        <div class="header">Услуги</div>
+        <div class="description">
+            Узнайте больше о наших услугах по речному транспорту и планированию вашего путешествия.
+        </div>
+    
+        <div class="service-container">
+            <div class="service">
+                <img src="/img/service1.jpg " alt="Услуга 1" class="service-image">
+                <div class="service-details">
+                    <h2>Транспортировка грузов</h2>
+                    <p>
+                        Мы предоставляем надежные и эффективные услуги по транспортировке грузов по рекам.
+                        Независимо от размера и типа вашего груза, мы гарантируем безопасную и своевременную доставку.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="service">
+                <img src="/img/service2.jpg" alt="Услуга 2" class="service-image">
+                <div class="service-details">
+                    <h2>Пассажирские перевозки</h2>
+                    <p>
+                        Путешествуйте с комфортом и стилем на наших пассажирских лайнерах.
+                        Наши суда оборудованы всем необходимым для приятного и безопасного путешествия.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="service">
+                <img src="/img/service3.jpg" alt="Услуга 3" class="service-image">
+                <div class="service-details">
+                    <h2>Туристические путешествия</h2>
+                    <p>
+                        Организуем захватывающие туры по живописным рекам. Исследуйте новые места и
+                        наслаждайтесь красотой природы в уютной обстановке наших судов.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="content" id="contacts">
+        <div class="header">Контакты</div>
+    
+        <!-- Вымышленная таблица контактов -->
+        <table class="contact-table">
+            <tr>
+                <td>Отдел продаж</td>
+                <td>+7 123 456 789</td>
+            </tr>
+            <tr>
+                <td>Техническая поддержка</td>
+                <td>support@example.com</td>
+            </tr>
+            <tr>
+                <td>Адрес</td>
+                <td>Город, Улица, Дом</td>
+            </tr>
+        </table>
+    
+        <!-- Форма отправки сообщений -->
+        <div class="contact-form">
+            <form action="/submit_form" method="post">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Ваш email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Ваше сообщение:</label>
+                <textarea id="message" name="message" required></textarea>
+    
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="content" id="schedule">
+        <div class="header">Расписание</div>
+        <div class="description">
+            Ознакомьтесь с расписанием речных рейсов и планируйте свои поездки с учетом удобного графика.
+        </div>
+        <table id="scheduleTable">
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Название</th>
+                    <th>Время отправления</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Сюда будет вставляться созданная таблица с помощью JavaScript -->
+            </tbody>
+        </table>
+    </div>
+     <script src="/script.js"></script>
+</body>
+</html>
